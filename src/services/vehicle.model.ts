@@ -1,6 +1,6 @@
-import { BasicInfo } from './basic-info.model';
+import { BasicInfo, PaginatedResponse } from './common.model';
 
-export type Vehicle = BasicInfo & {
+export interface Vehicle extends BasicInfo {
   name: string;
   model: string;
   vehicle_class: string;
@@ -14,12 +14,9 @@ export type Vehicle = BasicInfo & {
   consumables: string;
   films: string[];
   pilots: string[];
-  url: string[];
-  created: string;
-  edited: string;
-};
+}
 
 export interface VehicleApi {
-  getVehicles: () => Promise<Vehicle[]>;
+  getVehicles: () => Promise<PaginatedResponse<Vehicle[]>>;
   getVehicle: (vehicleId: string) => Promise<Vehicle>;
 }

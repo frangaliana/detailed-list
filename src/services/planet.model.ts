@@ -1,6 +1,6 @@
-import { BasicInfo } from './basic-info.model';
+import { BasicInfo, PaginatedResponse } from './common.model';
 
-export type Planet = BasicInfo & {
+export interface Planet extends BasicInfo {
   name: string;
   diameter: string;
   rotation_period: string;
@@ -12,12 +12,9 @@ export type Planet = BasicInfo & {
   surface_water: string;
   residents: string[];
   films: string[];
-  url: string;
-  created: string;
-  edited: string;
-};
+}
 
 export interface PlanetApi {
-  getPlanets: () => Promise<Planet[]>;
+  getPlanets: () => Promise<PaginatedResponse<Planet[]>>;
   getPlanet: (planetId: string) => Promise<Planet>;
 }

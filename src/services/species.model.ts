@@ -1,6 +1,6 @@
-import { BasicInfo } from './basic-info.model';
+import { BasicInfo, PaginatedResponse } from './common.model';
 
-export type Species = BasicInfo & {
+export interface Species extends BasicInfo {
   name: string;
   classification: string;
   designation: string;
@@ -13,9 +13,9 @@ export type Species = BasicInfo & {
   homeworld: string;
   people: string[];
   films: string[];
-};
+}
 
 export interface SpeciesApi {
-  getSpeciess: () => Promise<Species[]>;
+  getSpeciess: () => Promise<PaginatedResponse<Species[]>>;
   getSpecies: (speciesId: string) => Promise<Species>;
 }

@@ -1,6 +1,6 @@
-import { BasicInfo } from './basic-info.model';
+import { BasicInfo, PaginatedResponse } from './common.model';
 
-export type Starship = BasicInfo & {
+export interface Starship extends BasicInfo {
   name: string;
   model: string;
   starship_class: string;
@@ -16,12 +16,9 @@ export type Starship = BasicInfo & {
   consumables: string;
   films: string[];
   pilots: string[];
-  url: string;
-  created: string;
-  edited: string;
-};
+}
 
 export interface StarshipApi {
-  getStarships: () => Promise<Starship[]>;
+  getStarships: () => Promise<PaginatedResponse<Starship[]>>;
   getStarship: (starshipId: string) => Promise<Starship>;
 }

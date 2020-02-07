@@ -1,6 +1,6 @@
-import { BasicInfo } from './basic-info.model';
+import { BasicInfo, PaginatedResponse } from './common.model';
 
-export type Film = BasicInfo & {
+export interface Film extends BasicInfo {
   title: string;
   episode_id: number;
   opening_crawl: string;
@@ -12,12 +12,9 @@ export type Film = BasicInfo & {
   vehicles: string[];
   characters: string[];
   planets: string[];
-  url: string;
-  created: string;
-  edited: string;
-};
+}
 
 export interface FilmApi {
-  getFilms: () => Promise<Film[]>;
+  getFilms: () => Promise<PaginatedResponse<Film[]>>;
   getFilm: (filmId: string) => Promise<Film>;
 }

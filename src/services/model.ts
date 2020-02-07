@@ -1,4 +1,4 @@
-export * from './basic-info.model';
+export * from './common.model';
 export * from './character.model';
 export * from './film.model';
 export * from './planet.model';

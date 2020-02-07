@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const basePath = __dirname;
 
 module.exports = (mode = 'development') => ({
-  entry: path.join(basePath, 'src', 'index.tsx'),
+  entry: ['whatwg-fetch', path.join(basePath, 'src', 'index.tsx')],
   output: {
     path: path.join(basePath, 'build'),
     filename: '[name].[hash].js',
