@@ -4,13 +4,15 @@ import { getCharacters } from './paginated-list.api';
 
 import InfiniteList from 'react-infinite-scroll-component';
 
-import { Card } from '../../common';
+import { Card, Spinner } from '../../common';
 import { Text } from '../../common/styled-fonts';
 import { PaginatedResponse, Character } from './paginated-list.model';
 
 type ListProps = {};
 
 export const PaginatedList: React.FC<ListProps> = props => {
+  const [loading, setLoading] = React.useState(true);
+
   const [paginatedResult, setPaginatedResult] = React.useState<PaginatedResponse<Character[]>>(null);
   const loadMoreUrl = React.useRef(null);
 
@@ -19,6 +21,7 @@ export const PaginatedList: React.FC<ListProps> = props => {
   React.useEffect(() => {
     getCharacters()
       .then(response => {
+        setLoading(false);
         setPaginatedResult(response);
       })
       .catch(error =>
@@ -53,19 +56,24 @@ export const PaginatedList: React.FC<ListProps> = props => {
 
   return (
     <>
-      {!!paginatedResult && !!paginatedResult.results && (
-        <InfiniteList
-          dataLength={paginatedResult.results.length}
-          next={loadMore}
-          hasMore={!!paginatedResult.next}
-          loader={null}
-        >
-          {paginatedResult.results.map(result => (
-            <Card key={result.url}>
-              <Text>{result.name}</Text>
-            </Card>
-          ))}
-        </InfiniteList>
+      {loading ? (
+        <Spinner />
+      ) : (
+        !!paginatedResult &&
+        !!paginatedResult.results && (
+          <InfiniteList
+            dataLength={paginatedResult.results.length}
+            next={loadMore}
+            hasMore={!!paginatedResult.next}
+            loader={null}
+          >
+            {paginatedResult.results.map(result => (
+              <Card key={result.url}>
+                <Text>{result.name}</Text>
+              </Card>
+            ))}
+          </InfiniteList>
+        )
       )}
     </>
   );
