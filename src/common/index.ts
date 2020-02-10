@@ -1,4 +1,4 @@
 export { TagsHeader } from './tags-header.component';
 
 export { Card } from './card.styled';
-export { ErrorBoundary } from './error-boundary.component';
+export { ErrorBoundary } from './error-boundary';

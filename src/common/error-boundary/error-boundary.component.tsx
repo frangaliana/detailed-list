@@ -1,15 +1,19 @@
 import * as React from 'react';
+import { ErrorContainer } from './error-boundary.styled';
+
+import { Emoji } from '../../assets/icons/utils';
 
 type ErrorBoundaryProps = {};
 
 type ErrorBoundaryState = {
   hasError: boolean;
+  errorMessage: string;
 };
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false };
+    this.state = { hasError: false, errorMessage: 'Something went wrong. Try later' };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
@@ -21,9 +25,12 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   render() {
     if (this.state.hasError) {
       return (
-        <div>
-          <h1>Something went wrong. Sorry!</h1>
-        </div>
+        <ErrorContainer>
+          <h1>
+            {this.state.errorMessage}
+            <Emoji symbol="😅" label="sorry" />
+          </h1>
+        </ErrorContainer>
       );
     }
 
