@@ -1,4 +1,4 @@
-import { AM } from '../../services';
+import { AM } from '../../core/api';
 import * as VM from './paginated-list.model';
 
 export const mapCharacterAMToVM = (character: AM.Character): VM.Character =>
@@ -7,6 +7,7 @@ export const mapCharacterAMToVM = (character: AM.Character): VM.Character =>
     homeworld: character.homeworld,
     birthYear: character.birth_year,
     gender: character.gender,
+    url: character.url,
   };
 
 export const mapPaginatedCharactersAMToVM = (

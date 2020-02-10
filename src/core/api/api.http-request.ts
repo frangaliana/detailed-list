@@ -1,6 +1,3 @@
-import { generateUrl } from './utils.url';
-import { endpointConfiguration } from './utils.env';
-
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
 
 interface Api {
@@ -10,11 +7,12 @@ interface Api {
 const customFetch = async <T>(
   endpoint: string,
   method: Method = 'GET',
-  headers: any = { Accept: 'application/json', 'Content-Type': 'application/json' },
+  headers: any = {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  },
   bodyRequest?: any
 ): Promise<T> => {
-  const baseUrl = generateUrl(endpointConfiguration, endpoint);
-
   const options = {
     method,
     headers,
@@ -22,7 +20,7 @@ const customFetch = async <T>(
   };
 
   try {
-    const response = await fetch(baseUrl, options);
+    const response = await fetch(endpoint, options);
     const body = (await response.json()) as Promise<T>;
 
     return body;

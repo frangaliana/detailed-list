@@ -3,6 +3,7 @@ export interface Character {
   birthYear: string;
   gender: string;
   homeworld: string;
+  url: string;
 }
 
 export interface PaginatedResponse<T> {

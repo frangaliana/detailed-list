@@ -1,7 +1,7 @@
 import styled from '../../styled-components';
 
 export const Title = styled.h1`
-  font-size: ${({ theme: { spacing } }) => spacing(12)}px;
+  font-size: ${({ theme: { spacing } }) => spacing(6)}px;
   color: ${({ theme: { palette } }) => palette.primary};
   letter-spacing: -0.05em;
   font-weight: 700;
@@ -10,7 +10,7 @@ export const Title = styled.h1`
 `;
 
 export const Text = styled.p`
-  color: ${({ theme: { palette } }) => palette.secondary};
+  color: ${({ theme: { palette } }) => palette.text};
   letter-spacing: -0.03em;
   font-weight: 500;
   margin: 0;

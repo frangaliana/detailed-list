@@ -2,9 +2,11 @@ import * as React from 'react';
 
 import { ThemeStyledProvider } from './providers';
 import { theme } from './app.theme';
+import { ErrorBoundary } from './common';
 
-import { Title } from './common/styled-fonts';
-import { PaginatedList, ErrorBoundary } from './components';
+import { GeneralLayout } from './layouts';
+
+import { Header, PaginatedList } from './pods';
 
 type AppProps = {};
 
@@ -12,8 +14,7 @@ export const App: React.FC<AppProps> = () => {
   return (
     <ThemeStyledProvider theme={theme}>
       <ErrorBoundary>
-        <Title>Detailed-List</Title>
-        <PaginatedList />
+        <GeneralLayout HeaderContent={<Header />} ListContent={<PaginatedList />} />
       </ErrorBoundary>
     </ThemeStyledProvider>
   );

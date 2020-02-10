@@ -20,6 +20,18 @@ const GlobalStyle = createGlobalStyle`
     color: ${({ theme: { palette } }): string => palette.secondary};
   }
 
+  ::-webkit-scrollbar {
+    width: ${({ theme: { spacing } }) => spacing(0.5)}px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: ${({ theme: { palette } }): string => palette.primary};
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: ${({ theme: { palette } }): string => palette.highlighted};
+  }
+
   body{
     box-sizing: border-box;
     margin: 0;
