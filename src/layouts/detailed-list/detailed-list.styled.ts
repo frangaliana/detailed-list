@@ -7,11 +7,14 @@ export const General = styled.div`
 `;
 
 export const Header = styled.header`
+  flex: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  position: sticky;
+  position: fixed;
+  width: 100%;
   top: ${({ theme: { spacing } }) => spacing(0)}px;
 
   background-color: ${({ theme: { palette } }) => palette.navigationBackground};
@@ -19,7 +22,9 @@ export const Header = styled.header`
 `;
 
 export const List = styled.section`
-  padding: ${({ theme: { spacing } }) => `${spacing(2)}px ${spacing(4)}px`};
+  flex: 1 0 auto;
+
+  margin: ${({ theme: { spacing } }) => `${spacing(8)}px ${spacing(4)}px`};
 
   ${({
     theme: {

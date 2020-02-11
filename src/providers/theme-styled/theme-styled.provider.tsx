@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
 
   ::selection{
     background: ${({ theme: { palette } }): string => palette.highlighted};
-    color: ${({ theme: { palette } }): string => palette.secondary};
+    color: ${({ theme: { palette } }): string => palette.text};
   }
 
   ::-webkit-scrollbar {

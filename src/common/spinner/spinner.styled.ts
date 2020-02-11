@@ -1,7 +1,7 @@
 import styled from '../../styled-components';
 
 export const SpinnerContainer = styled.div`
-  margin: 0 auto;
+  margin: ${({ theme: { spacing } }) => spacing(4.5)}px auto;
   width: ${({ theme: { spacing } }) => spacing(4.5)}px;
   height: ${({ theme: { spacing } }) => spacing(4.5)}px;
   border-radius: 50%;

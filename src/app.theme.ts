@@ -11,6 +11,12 @@ export const theme = {
     navigationBackground: '#242933',
     cardBackground: '#333a47',
     highlighted: '#17E6CD',
+    badges: {
+      default: '#00BFA9',
+      default2: '#EDCB32',
+      default3: '#1897F2',
+      default4: '#F21C18',
+    },
   },
   spacing: (factor: number): number => factor * 8,
   transition: ['0.2s ease-out', '0.5s ease-out'],

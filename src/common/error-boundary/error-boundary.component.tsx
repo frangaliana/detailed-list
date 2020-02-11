@@ -2,6 +2,10 @@ import * as React from 'react';
 import { ErrorContainer } from './error-boundary.styled';
 
 import { Emoji } from '../../assets/icons/utils';
+import { TryAgainIcon } from '../../assets/icons/try-again.icon';
+
+import { ImageButton } from '../image-button/image-button.component';
+import { IconLink } from '../../app.model';
 
 type ErrorBoundaryProps = {};
 
@@ -13,7 +17,7 @@ type ErrorBoundaryState = {
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
-    this.state = { hasError: false, errorMessage: 'Something went wrong. Try later' };
+    this.state = { hasError: false, errorMessage: 'Oops! Something went wrong ' };
   }
 
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
@@ -23,6 +27,12 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
   }
 
   render() {
+    const tryAgainLink: IconLink = {
+      title: 'Try again',
+      url: '',
+      Icon: TryAgainIcon,
+    };
+
     if (this.state.hasError) {
       return (
         <ErrorContainer>
@@ -30,6 +40,7 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
             {this.state.errorMessage}
             <Emoji symbol="😅" label="sorry" />
           </h1>
+          <ImageButton iconLink={tryAgainLink} iconSize={3} />
         </ErrorContainer>
       );
     }

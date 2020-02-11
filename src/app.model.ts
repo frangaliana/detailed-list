@@ -9,3 +9,9 @@ export type SvgIconProps = {
   size: number;
   title?: string;
 };
+
+export type IconLink = {
+  title: string;
+  url: string;
+  Icon: React.FunctionComponent<SvgIconProps>;
+};

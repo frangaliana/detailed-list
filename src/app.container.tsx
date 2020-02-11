@@ -13,9 +13,14 @@ type AppProps = {};
 export const App: React.FC<AppProps> = () => {
   return (
     <ThemeStyledProvider theme={theme}>
-      <ErrorBoundary>
-        <GeneralLayout HeaderContent={<Header />} ListContent={<PaginatedList />} />
-      </ErrorBoundary>
+      <GeneralLayout
+        HeaderContent={<Header />}
+        ListContent={
+          <ErrorBoundary>
+            <PaginatedList />
+          </ErrorBoundary>
+        }
+      />
     </ThemeStyledProvider>
   );
 };

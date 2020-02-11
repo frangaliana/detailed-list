@@ -1,1 +1,1 @@
-export { Title, Text } from './styled-fonts.styled';
+export { Title, Heading, Text } from './styled-fonts.styled';

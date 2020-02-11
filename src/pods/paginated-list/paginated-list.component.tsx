@@ -4,9 +4,10 @@ import { getCharacters } from './paginated-list.api';
 
 import InfiniteList from 'react-infinite-scroll-component';
 
-import { Card, Spinner } from '../../common';
-import { Text } from '../../common/styled-fonts';
+import { Spinner } from '../../common';
+
 import { PaginatedResponse, Character } from './paginated-list.model';
+import { CharacterCard } from './character-card/character-card.component';
 
 type ListProps = {};
 
@@ -68,9 +69,7 @@ export const PaginatedList: React.FC<ListProps> = props => {
             loader={null}
           >
             {paginatedResult.results.map(result => (
-              <Card key={result.url}>
-                <Text>{result.name}</Text>
-              </Card>
+              <CharacterCard character={result} key={result.url} />
             ))}
           </InfiniteList>
         )
