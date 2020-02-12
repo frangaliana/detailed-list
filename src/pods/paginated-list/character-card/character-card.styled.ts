@@ -23,9 +23,9 @@ export const Card = styled.div`
 `;
 
 export const AvatarContainer = styled.div`
-  flex: 1;
+  flex: 1 0 auto;
 
-  padding: ${({ theme: { spacing } }) => `${spacing(1)}px ${spacing(3)}px`};
+  padding: ${({ theme: { spacing } }) => `${spacing(0.5)}px ${spacing(0.5)}px`};
 
   display: flex;
   justify-content: center;
