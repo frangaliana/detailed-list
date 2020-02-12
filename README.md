@@ -1,4 +1,4 @@
-# Own Website
+# Detailed List
 
 ## Content
 
