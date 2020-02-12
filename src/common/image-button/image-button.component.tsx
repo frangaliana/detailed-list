@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { IconLink } from '../../app.model';
 
-import { ImageButtonContainer } from './image-button.styled';
+import { ImageButtonContainer, IconContainer, TextContainer } from './image-button.styled';
 
 type ImageButtonProps = {
   iconSize: number;
@@ -17,8 +17,10 @@ export const ImageButton: React.FC<ImageButtonProps> = ({ iconSize, iconLink: { 
 
   return (
     <ImageButtonContainer href={url} onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-      <Icon size={iconSize} title={title} color={hovered ? 'background' : 'primary'} />
-      {title}
+      <IconContainer>
+        <Icon size={iconSize} title={title} color={hovered ? 'background' : 'primary'} />
+      </IconContainer>
+      <TextContainer>{title}</TextContainer>
     </ImageButtonContainer>
   );
 };

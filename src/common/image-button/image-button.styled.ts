@@ -9,7 +9,9 @@ export const ImageButtonContainer = styled.a`
   text-decoration: none;
 
   height: ${({ theme: { spacing } }) => spacing(5)};
-  width: ${({ theme: { spacing } }) => spacing(19)};
+  width: ${({ theme: { spacing } }) => spacing(18)};
+
+  padding: ${({ theme: { spacing } }) => spacing(0.5)}px;
 
   display: flex;
   justify-content: space-evenly;
@@ -19,4 +21,22 @@ export const ImageButtonContainer = styled.a`
     background-color: ${({ theme: { palette } }) => palette.primary};
     color: ${({ theme: { palette } }) => palette.background};
   }
+`;
+
+export const IconContainer = styled.div`
+  align-self: stretch;
+  flex: 1 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TextContainer = styled.div`
+  align-self: stretch;
+  flex: 2 0 auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

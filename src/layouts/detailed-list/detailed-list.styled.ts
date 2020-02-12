@@ -21,6 +21,10 @@ export const Header = styled.header`
   border-bottom: ${({ theme: { spacing } }) => `${spacing(0.125)}px solid rgba(0,0,0,0.2)`};
 `;
 
+export const Navigation = styled.section`
+  flex: none;
+`;
+
 export const List = styled.section`
   flex: 1 0 auto;
 

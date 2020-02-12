@@ -14,24 +14,8 @@ export const Card = styled.div`
 
   cursor: pointer;
 
-  display: grid;
-  grid-template-areas:
-    'avatar-container title-container title-container'
-    'avatar-container badge-container more-info-container';
-  grid-template-columns: 1fr 2fr 2fr;
-  grid-template-rows: auto;
-
-  ${({
-    theme: {
-      breakpoints: { desktop },
-    },
-  }) => desktop} {
-    grid-template-areas:
-      'avatar-container title-container badge-container'
-      'avatar-container more-info-container more-info-container';
-    grid-template-columns: 1fr 2fr 2fr;
-    grid-template-rows: auto;
-  }
+  display: flex;
+  align-items: stretch;
 
   &:hover {
     border: 1px solid ${({ theme: { palette } }) => palette.primary};
@@ -39,63 +23,61 @@ export const Card = styled.div`
 `;
 
 export const AvatarContainer = styled.div`
-  grid-area: avatar-container;
+  flex: 1;
 
-  padding: ${({ theme: { spacing } }) => spacing(1)}px;
-  align-self: center;
-  justify-self: center;
+  padding: ${({ theme: { spacing } }) => `${spacing(1)}px ${spacing(3)}px`};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const DescriptionContainer = styled.div`
+  flex: 10;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  ${({
+    theme: {
+      breakpoints: { desktop },
+    },
+  }) => desktop} {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
 `;
 
 export const TitleContainer = styled.div`
-  grid-area: title-container;
-
   padding: ${({ theme: { spacing } }) => spacing(1)}px;
-  align-self: center;
-  justify-self: start;
 
-  ${({
-    theme: {
-      breakpoints: { desktop },
-    },
-  }) => desktop} {
-    padding: ${({ theme: { spacing } }) => spacing(1)}px;
-    align-self: start;
-    justify-self: start;
-  }
-`;
-
-export const BadgeContainer = styled.div`
-  grid-area: badge-container;
-
-  padding: 0 ${({ theme: { spacing } }) => spacing(1)}px;
-  align-self: start;
-  justify-self: start;
-
-  ${({
-    theme: {
-      breakpoints: { desktop },
-    },
-  }) => desktop} {
-    padding: ${({ theme: { spacing } }) => spacing(1)}px;
-    align-self: start;
-    justify-self: end;
-  }
+  flex: 1;
+  display: flex;
+  align-items: center;
 `;
 
 export const MoreInfoContainer = styled.div`
-  grid-area: more-info-container;
+  padding: ${({ theme: { spacing } }) => spacing(1)}px;
 
-  padding: 0 ${({ theme: { spacing } }) => spacing(1)}px;
-  align-self: start;
-  justify-self: start;
+  flex: 1;
+  align-self: stretch;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 
   ${({
     theme: {
       breakpoints: { desktop },
     },
   }) => desktop} {
-    padding: ${({ theme: { spacing } }) => spacing(1)}px;
-    align-self: start;
-    justify-self: end;
+    flex: 0;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
   }
 `;

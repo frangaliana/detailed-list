@@ -6,7 +6,7 @@ import { ErrorBoundary } from './common';
 
 import { GeneralLayout } from './layouts';
 
-import { Header, PaginatedList } from './pods';
+import { Header, PaginatedList, Filters } from './pods';
 
 type AppProps = {};
 
@@ -15,6 +15,7 @@ export const App: React.FC<AppProps> = () => {
     <ThemeStyledProvider theme={theme}>
       <GeneralLayout
         HeaderContent={<Header />}
+        NavigationContent={<Filters />}
         ListContent={
           <ErrorBoundary>
             <PaginatedList />
