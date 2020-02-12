@@ -2,9 +2,9 @@ import * as React from 'react';
 import { ErrorContainer } from './error-boundary.styled';
 
 import { Emoji } from '../../assets/icons/utils';
-import { TryAgainIcon } from '../../assets/icons/try-again.icon';
+import { TryAgainIcon } from '../../assets/icons';
 
-import { ImageButton } from '../image-button/image-button.component';
+import { ImageButton } from '../image-button';
 import { IconLink } from '../../app.model';
 
 type ErrorBoundaryProps = {};

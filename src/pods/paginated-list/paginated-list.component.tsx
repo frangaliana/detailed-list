@@ -6,6 +6,8 @@ import InfiniteList from 'react-infinite-scroll-component';
 
 import { Spinner } from '../../common';
 
+import { Filters } from '../filters';
+import { ListContainer } from './paginated-list.styled';
 import { PaginatedResponse, Character } from './paginated-list.model';
 import { CharacterCard } from './character-card/character-card.component';
 
@@ -62,16 +64,19 @@ export const PaginatedList: React.FC<ListProps> = props => {
       ) : (
         !!paginatedResult &&
         !!paginatedResult.results && (
-          <InfiniteList
-            dataLength={paginatedResult.results.length}
-            next={loadMore}
-            hasMore={!!paginatedResult.next}
-            loader={null}
-          >
-            {paginatedResult.results.map(result => (
-              <CharacterCard character={result} key={result.url} />
-            ))}
-          </InfiniteList>
+          <ListContainer>
+            <Filters />
+            <InfiniteList
+              dataLength={paginatedResult.results.length}
+              next={loadMore}
+              hasMore={!!paginatedResult.next}
+              loader={null}
+            >
+              {paginatedResult.results.map(result => (
+                <CharacterCard character={result} key={result.url} />
+              ))}
+            </InfiniteList>
+          </ListContainer>
         )
       )}
     </>

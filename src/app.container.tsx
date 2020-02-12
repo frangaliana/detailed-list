@@ -15,7 +15,6 @@ export const App: React.FC<AppProps> = () => {
     <ThemeStyledProvider theme={theme}>
       <GeneralLayout
         HeaderContent={<Header />}
-        NavigationContent={<Filters />}
         ListContent={
           <ErrorBoundary>
             <PaginatedList />

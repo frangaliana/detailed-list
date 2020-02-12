@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as VM from '../paginated-list.model';
 
-import { AvatarIcon } from '../../../assets/icons/avatar.icon';
+import { AvatarIcon } from '../../../assets/icons';
 import { Text } from '../../../common/styled-fonts';
 import { Badge } from '../../../common';
 import {
