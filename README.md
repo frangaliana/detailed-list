@@ -3,13 +3,8 @@
 ## Content
 
 ⚠️ Under construction ⛏️
-http://frangaliana.github.io/portfolio
 
-My own website (portfolio) developed with React (with Hooks), Typescript, Styled-Components and Jest.
-
-Tests automation by performing Continuous Integration Integration (CI) with CircleCI.
-
-With this project I want to improve my knowledge about these technologies and show my skills and experience but above all learn more.
+SWAPI list developed in Typescript, React & Styled-Components and tested with Jest and Enzyme
 
 ## Getting Started
 
