@@ -12,18 +12,23 @@ import {
   TitleContainer,
   MoreInfoContainer,
 } from './character-card.styled';
-import { mapToBadgeType, mapToBattleInfo } from './character-card.mapper';
+import { mapToId } from './character-card.mapper';
+import { mapToBadgeType, mapToBattleInfo } from '../../../app.mapper';
 
 type CharacterCardProps = {
   character: VM.Character;
+  handleClick: (newCharacter: VM.Character) => void;
 };
 
-export const CharacterCard: React.FC<CharacterCardProps> = ({ character }) => {
+export const CharacterCard: React.FC<CharacterCardProps> = ({ character, handleClick }) => {
   const badgeType = mapToBadgeType(character.gender);
   const battleInfo = mapToBattleInfo(character.birthYear);
+  const characterId = mapToId(character.url);
+
+  const onClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => handleClick(character);
 
   return (
-    <Card>
+    <Card to={{ pathname: `characters/${characterId}`, state: { character } }} onClick={onClick}>
       <AvatarContainer>
         <AvatarIcon color="navigationBackground" size={6} />
       </AvatarContainer>

@@ -1,6 +1,8 @@
 import styled from '../../../styled-components';
 
-export const Card = styled.div`
+import { Link } from 'react-router-dom';
+
+export const Card = styled(Link)`
   margin-bottom: ${({ theme: { spacing } }) => spacing(2)}px;
   height: ${({ theme: { spacing } }) => spacing(10)}px;
   max-width: 100%;
@@ -13,6 +15,7 @@ export const Card = styled.div`
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   cursor: pointer;
+  text-decoration: none;
 
   display: flex;
   align-items: stretch;

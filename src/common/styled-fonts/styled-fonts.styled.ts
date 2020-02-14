@@ -37,13 +37,18 @@ export const Heading = styled.h1<HeadingProps>`
 `;
 
 type TextProps = {
-  bold: boolean;
+  bold?: boolean;
+  size?: number;
+  color?: keyof Theme['palette'];
+  textAlign?: string;
 };
 
 export const Text = styled.p<TextProps>`
-  color: ${({ theme: { palette } }) => palette.text};
+  text-align: ${({ textAlign }) => (!!textAlign ? textAlign : 'left')};
+  color: ${({ theme: { palette }, color }) => (!!color ? palette[color] : palette.text)};
   letter-spacing: -0.03em;
   font-weight: ${({ bold }) => (!!bold ? 'bold' : '500')};
+  font-size: ${({ theme: { spacing }, size }) => spacing(!!size ? size : 2)}px;
   margin: 0;
   padding: 0;
 `;

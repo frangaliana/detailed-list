@@ -5,3 +5,8 @@ export const ListContainer = styled.div`
   flex-direction: column;
   align-items: stretch;
 `;
+
+export const NoResultsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`;

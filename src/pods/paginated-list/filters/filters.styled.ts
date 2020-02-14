@@ -1,11 +1,13 @@
-import styled from '../../styled-components';
+import styled from '../../../styled-components';
 
 export const FiltersContainer = styled.div`
   padding: ${({ theme: { spacing } }) => spacing(3)}px 0;
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  height: ${({ theme: { spacing } }) => spacing(13)}px;
 
   ${({
     theme: {
@@ -13,6 +15,5 @@ export const FiltersContainer = styled.div`
     },
   }) => desktop} {
     flex-direction: row;
-    justify-content: space-between;
   }
 `;

@@ -31,6 +31,6 @@ export const List = styled.section`
       breakpoints: { desktop },
     },
   }) => desktop} {
-    padding: ${({ theme: { spacing } }) => `0 ${spacing(40)}px`};
+    padding: ${({ theme: { spacing } }) => `0 ${spacing(35)}px`};
   }
 `;
