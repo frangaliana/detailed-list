@@ -2,7 +2,7 @@
 
 ## Content
 
-⚠️ Under construction ⛏️
+⚠️ Under construction ⛏️ https://frangaliana.github.io/detailed-list
 
 SWAPI list developed in Typescript, React & Styled-Components and tested with Jest and Enzyme
 

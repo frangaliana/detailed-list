@@ -7,3 +7,5 @@ export { SearchInput } from './search-input';
 export { ActionButton } from './action-button';
 export { ImageButton } from './image-button';
 export { Badge } from './badge';
+
+export { NotFound } from './not-found';

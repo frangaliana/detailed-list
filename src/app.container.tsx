@@ -4,7 +4,7 @@ import { ThemeStyledProvider } from './providers';
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { theme } from './app.theme';
-import { ErrorBoundary } from './common';
+import { ErrorBoundary, NotFound } from './common';
 
 import { GeneralLayout } from './layouts';
 
@@ -133,6 +133,7 @@ export const App: React.FC<AppProps> = () => {
                   )}
                 />
                 <Route exact path="/characters/:characterId" render={() => <ResultDetail result={character} />} />
+                <Route component={NotFound} />
               </Switch>
             </ErrorBoundary>
           }
