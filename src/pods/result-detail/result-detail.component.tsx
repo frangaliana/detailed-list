@@ -6,7 +6,7 @@ import { BackIcon } from '../../assets/icons';
 import { Spinner } from '../../common';
 
 import * as VM from './result-detail.model';
-import { getCharacter } from '../../app.api';
+import { getCharacter } from './result-detail.api';
 
 import { ResultDetailContainer, ActionBarContainer, CharacterContainer } from './result-detail.styled';
 import { CharacterDetail } from './character-detail/character-detail.component';
