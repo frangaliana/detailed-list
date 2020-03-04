@@ -1,7 +1,7 @@
 import styled from '../../../styled-components';
 
 export const CharacterDetailContainer = styled.div`
-  height: ${({ theme: { spacing } }) => spacing(52)}px;
+  height: ${({ theme: { spacing } }) => spacing(55)}px;
   max-width: 100%;
 
   padding: ${({ theme: { spacing } }) => spacing(2)}px ${({ theme: { spacing } }) => spacing(2)}px;
@@ -19,7 +19,7 @@ export const CharacterDetailContainer = styled.div`
       breakpoints: { desktop },
     },
   }) => desktop} {
-    height: ${({ theme: { spacing } }) => spacing(55)}px;
+    height: ${({ theme: { spacing } }) => spacing(52)}px;
     padding: ${({ theme: { spacing } }) => spacing(5)}px ${({ theme: { spacing } }) => spacing(5)}px;
   }
 `;
