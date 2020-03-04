@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const basePath = __dirname;
 
@@ -66,6 +67,7 @@ module.exports = (mode = 'development') => ({
     ],
   },
   optimization: {
+    minimizer: [new UglifyJsPlugin()],
     splitChunks: {
       chunks: 'all',
       maxInitialRequests: Infinity,
