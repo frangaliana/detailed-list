@@ -19,7 +19,6 @@ export const CharacterDetailContainer = styled.div`
       breakpoints: { desktop },
     },
   }) => desktop} {
-    height: ${({ theme: { spacing } }) => spacing(52)}px;
     padding: ${({ theme: { spacing } }) => spacing(5)}px ${({ theme: { spacing } }) => spacing(5)}px;
   }
 `;
