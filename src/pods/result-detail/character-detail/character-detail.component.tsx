@@ -19,7 +19,7 @@ import { AvatarIcon } from '../../../assets/icons';
 import { Text } from '../../../common/styled-fonts';
 import { Badge, ActionButton } from '../../../common';
 
-import { mapToBadgeType, mapToBattleInfo } from '../../../app.mapper';
+import { mapToBadgeType, mapToBattleInfo } from '../result-detail.mapper';
 
 type CharacterDetailProps = {
   character: VM.Character;

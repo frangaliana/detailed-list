@@ -1,7 +1,6 @@
-import { Theme } from './app.theme';
-
-import { AM } from './core/api';
-import * as VM from './app.model';
+import { AM } from '../../core/api';
+import { Theme } from '../../app.theme';
+import * as VM from './result-detail.model';
 
 export const mapCharacterAMToVM = (character: AM.Character): VM.Character =>
   !!character && {
@@ -15,16 +14,6 @@ export const mapCharacterAMToVM = (character: AM.Character): VM.Character =>
     skinColor: character.skin_color,
     eyeColor: character.skin_color,
     url: character.url,
-  };
-
-export const mapPaginatedCharactersAMToVM = (
-  response: AM.PaginatedResponse<AM.Character[]>
-): VM.PaginatedResponse<VM.Character[]> =>
-  !!response && {
-    count: response.count,
-    next: response.next,
-    previous: response.previous,
-    results: !!response.results && response.results.length > 0 && response.results.map(mapCharacterAMToVM),
   };
 
 export const mapToBadgeType = (gender: string): keyof Theme['palette']['badges'] => {
