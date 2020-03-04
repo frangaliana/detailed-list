@@ -1,7 +1,7 @@
 import styled from '../../../styled-components';
 
 export const CharacterDetailContainer = styled.div`
-  height: ${({ theme: { spacing } }) => spacing(56)}px;
+  height: ${({ theme: { spacing } }) => spacing(57)}px;
   max-width: 100%;
 
   padding: ${({ theme: { spacing } }) => spacing(2)}px ${({ theme: { spacing } }) => spacing(2)}px;
