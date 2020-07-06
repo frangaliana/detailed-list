@@ -82,7 +82,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
     if (!!searchText) {
       setLoading(true);
 
-      getCharacters(`people/?search=${searchText}`)
+      getCharacters(`people/?search=${searchText}/`)
         .then((response) => {
           setLoading(false);
 
