@@ -1,34 +1,38 @@
-type Method = 'GET' | 'POST' | 'PUT' | 'DELETE';
+import { generateUrl } from './utils.url';
 
-interface Api {
-  get: <T>(endpoint: string) => Promise<T>;
-}
+type Method = 'GET' | 'POST';
 
-const customFetch = async <T>(
-  endpoint: string,
-  method: Method = 'GET',
-  headers: any = {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  },
-  bodyRequest?: any
-): Promise<T> => {
-  const options = {
+const customFetch = (endpoint: string, { method = 'GET', ...customConfig } = {}) => {
+  const headers = { 'content-type': 'application/json; charset=utf-8' };
+
+  const config = {
     method,
-    headers,
-    body: bodyRequest ? JSON.stringify(bodyRequest) : undefined,
+    mode: 'no-cors',
+    ...customConfig,
+    headers: {
+      ...headers,
+      ...customConfig.headers,
+    },
   };
 
-  try {
-    const response = await fetch(endpoint, options);
-    const body = (await response.json()) as Promise<T>;
+  const url = generateUrl('https://swapi.dev/api', null, endpoint);
 
-    return body;
-  } catch (error) {
-    throw new Error(error);
-  }
+  return fetch(url, config)
+    .then(async (response) => {
+      const data = await response.json();
+
+      if (response.ok) {
+        return data;
+      } else {
+        return Promise.reject(data);
+      }
+    })
+    .catch((error) => {
+      throw error;
+    });
 };
 
-export const api: Api = {
-  get: endpoint => customFetch(endpoint, 'GET'),
+export const api = {
+  get: (endpoint: string) => customFetch(endpoint, { method: 'GET' }),
+  post: (endpoint: string, options) => customFetch(endpoint, { method: 'POST', ...options }),
 };

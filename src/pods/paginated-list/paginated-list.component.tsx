@@ -32,12 +32,12 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
 
   React.useEffect(() => {
     getCharacters()
-      .then(response => {
+      .then((response) => {
         setLoading(false);
         setPaginatedResult(response);
         setSortedResults(!!response && response.results);
       })
-      .catch(error =>
+      .catch((error) =>
         setError(() => {
           throw error;
         })
@@ -53,7 +53,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
   const loadMore = () => {
     if (loadMoreUrl.current) {
       getCharacters(loadMoreUrl.current)
-        .then(response => {
+        .then((response) => {
           setPaginatedResult({
             count: response.count,
             next: response.next,
@@ -63,7 +63,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
 
           setSortedResults([...sortedResults, ...response.results].sort(resultsSortByField('name', true)));
         })
-        .catch(error =>
+        .catch((error) =>
           setError(() => {
             throw error;
           })
@@ -82,8 +82,8 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
     if (!!searchText) {
       setLoading(true);
 
-      getCharacters(`https://swapi.co/api/people/?search=${searchText}`)
-        .then(response => {
+      getCharacters(`people/?search=${searchText}`)
+        .then((response) => {
           setLoading(false);
 
           setPaginatedResult({
@@ -97,7 +97,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
             response.results.length > 0 ? [...response.results].sort(resultsSortByField('name', true)) : []
           );
         })
-        .catch(error =>
+        .catch((error) =>
           setError(() => {
             throw error;
           })
@@ -128,8 +128,8 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
             loader={null}
           >
             {!sorted
-              ? paginatedResult.results.map(result => <CharacterCard character={result} key={result.url} />)
-              : sortedResults.map(result => <CharacterCard character={result} key={result.url} />)}
+              ? paginatedResult.results.map((result) => <CharacterCard character={result} key={result.url} />)
+              : sortedResults.map((result) => <CharacterCard character={result} key={result.url} />)}
           </InfiniteList>
         </ListContainer>
       ) : (

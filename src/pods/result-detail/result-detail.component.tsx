@@ -24,13 +24,13 @@ export const ResultDetail: React.FC<ResultDetailProps> = ({}) => {
     if (!!characterId) {
       setLoading(true);
 
-      getCharacter(`https://swapi.co/api/people/${characterId}`)
-        .then(response => {
+      getCharacter(`people/${characterId}`)
+        .then((response) => {
           setLoading(false);
 
           setCharacter(response);
         })
-        .catch(error =>
+        .catch((error) =>
           setError(() => {
             throw error;
           })

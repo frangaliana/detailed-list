@@ -15,7 +15,7 @@ type swapiEnv = {
 const swapiEnv = {
   // Endpoint Server
   SWAPI_ENDPOINT_PROTOCOL: 'https',
-  SWAPI_ENDPOINT_DOMAIN: 'swapi.co',
+  SWAPI_ENDPOINT_DOMAIN: 'swapi.dev',
   SWAPI_ENDPOINT_PORT: null,
   SWAPI_ENDPOINT_DEFAULT: 'api',
 };

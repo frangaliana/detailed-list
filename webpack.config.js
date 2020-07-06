@@ -88,11 +88,13 @@ module.exports = (mode = 'development') => ({
       template: path.join(basePath, 'src', 'index.html'),
       filename: 'index.html',
     }),
-    new CopyWebpackPlugin([
-      {
-        from: `src/assets/favicon.png`,
-        to: `assets/favicon.png`,
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: `src/assets/favicon.png`,
+          to: `assets/favicon.png`,
+        },
+      ],
+    }),
   ],
 });
