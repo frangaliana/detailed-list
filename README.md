@@ -2,9 +2,7 @@
 
 ## Content
 
-⚠️ Under construction ⛏️ https://frangaliana.github.io/detailed-list
-
-SWAPI list developed in Typescript, React & Styled-Components and tested with Jest and Enzyme
+SWAPI list developed in Typescript, React & Styled-Components
 
 ## Getting Started
 
@@ -12,4 +10,3 @@ You'll only have to follow the instructions below to be able to reproduce the pr
 
 1. `yarn install`
 2. `yarn start`
-   (Optional) If you want to run tests, you have to run the following script: `yarn test` or `yarn test: coverage`
