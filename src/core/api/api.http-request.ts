@@ -14,7 +14,7 @@ const customFetch = (endpoint: string, { method = 'GET', ...customConfig } = {})
     },
   };
 
-  return fetch(url, config)
+  return fetch(endpoint, config)
     .then(async (response) => {
       const data = await response.json();
 
