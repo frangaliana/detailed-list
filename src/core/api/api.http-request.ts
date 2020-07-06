@@ -7,7 +7,6 @@ const customFetch = (endpoint: string, { method = 'GET', ...customConfig } = {})
 
   const config = {
     method,
-    mode: 'no-cors',
     ...customConfig,
     headers: {
       ...headers,
