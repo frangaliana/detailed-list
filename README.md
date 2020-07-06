@@ -2,7 +2,7 @@
 
 ## Content
 
-Star-Wars character list with detail view of each character, search and order by name developed with Typescript, React & Styled-Components
+Star Wars character list with detail view of each character, search and order by name developed with Typescript, React & Styled-Components
 
 ## Getting Started
 
