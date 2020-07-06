@@ -6,7 +6,7 @@ import { Spinner } from '../../common';
 
 import * as VM from './paginated-list.model';
 import { getCharacters } from './paginated-list.api';
-import { resultsSortByField } from './paginated-list.business';
+import { resultsSortByField, getPage } from './paginated-list.business';
 
 import { Filters } from './filters';
 import { ListContainer, NoResultsContainer } from './paginated-list.styled';
@@ -47,12 +47,12 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
   }, []);
 
   React.useEffect(() => {
-    loadMoreUrl.current = !!paginatedResult && !!paginatedResult.next ? paginatedResult.next : null;
+    loadMoreUrl.current = !!paginatedResult && !!paginatedResult.next ? getPage(paginatedResult.next) : null;
   }, [paginatedResult]);
 
   const loadMore = () => {
     if (loadMoreUrl.current) {
-      getCharacters(`${loadMoreUrl.current}/`)
+      getCharacters(`https://swapi.dev/api/people/?page=${loadMoreUrl.current}/`)
         .then((response) => {
           setPaginatedResult({
             count: response.count,

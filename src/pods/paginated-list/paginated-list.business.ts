@@ -13,3 +13,5 @@ export const resultsSortByField = (sortingBy: keyof VM.Character, sortingAsc: bo
   a: VM.Character,
   b: VM.Character
 ) => (sortingAsc ? 1 : -1) * compareFields(a[sortingBy], b[sortingBy]);
+
+export const getPage = (nextUrl) => nextUrl && nextUrl.split('page=', 2).pop();
