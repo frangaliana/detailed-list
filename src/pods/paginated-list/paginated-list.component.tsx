@@ -52,7 +52,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
 
   const loadMore = () => {
     if (loadMoreUrl.current) {
-      getCharacters(loadMoreUrl.current)
+      getCharacters(`${loadMoreUrl.current}/`)
         .then((response) => {
           setPaginatedResult({
             count: response.count,
@@ -82,7 +82,7 @@ export const PaginatedList: React.FC<ListProps> = ({}) => {
     if (!!searchText) {
       setLoading(true);
 
-      getCharacters(`people/?search=${searchText}/`)
+      getCharacters(`https://swapi.dev/api/people/?search=${searchText}/`)
         .then((response) => {
           setLoading(false);
 

@@ -4,5 +4,5 @@ import { api } from '../../core/api';
 
 import { mapPaginatedCharactersAMToVM } from './paginated-list.mapper';
 
-export const getCharacters = (url = 'people/'): Promise<VM.PaginatedResponse<VM.Character[]>> =>
+export const getCharacters = (url = 'https://swapi.dev/api/people/'): Promise<VM.PaginatedResponse<VM.Character[]>> =>
   api.get(url).then(mapPaginatedCharactersAMToVM);

@@ -24,7 +24,7 @@ export const ResultDetail: React.FC<ResultDetailProps> = ({}) => {
     if (!!characterId) {
       setLoading(true);
 
-      getCharacter(`people/${characterId}/`)
+      getCharacter(`https://swapi.dev/api/people/${characterId}/`)
         .then((response) => {
           setLoading(false);
 

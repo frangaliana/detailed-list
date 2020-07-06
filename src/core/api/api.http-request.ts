@@ -14,8 +14,6 @@ const customFetch = (endpoint: string, { method = 'GET', ...customConfig } = {})
     },
   };
 
-  const url = generateUrl('https://swapi.dev/api', null, endpoint);
-
   return fetch(url, config)
     .then(async (response) => {
       const data = await response.json();
